@@ -10,6 +10,7 @@ return {
     words = { enabled = true },
     styles = { notification = { wo = { wrap = true } } },
     toggle = { enabled = true },
+    input = { enabled = true },
   },
   keys = {
     {
