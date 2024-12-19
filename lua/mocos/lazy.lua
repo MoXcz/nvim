@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out,                            'WarningMsg' },
+      { out, 'WarningMsg' },
       { '\nPress any key to exit...' },
     }, true, {})
     vim.fn.getchar()
@@ -16,14 +16,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = {
-    change_detection = { notify = false },
+    change_detection = { notify = false, enabled = false },
     { import = 'mocos.plugins' },
     -- Undotree
-    { 'mbbill/undotree',       config = function() vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle) end, },
+    {
+      'mbbill/undotree',
+      config = function()
+        vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
+      end,
+    },
     -- Icons
-    ui = { icons = vim.g.have_nerd_font and {} or {}, },
+    ui = { icons = vim.g.have_nerd_font and {} or {} },
     -- Git symbols at the left
-    { 'lewis6991/gitsigns.nvim', opts = {}, },
+    { 'lewis6991/gitsigns.nvim', opts = {} },
     -- Colorscheme
     {
       'rebelot/kanagawa.nvim',
@@ -36,6 +41,7 @@ require('lazy').setup({
         vim.cmd.hi('Comment gui=none')
       end,
     },
-
+    -- Better menu input for rename and others
+    { 'stevearc/dressing.nvim', event = 'VeryLazy', enabled = false },
   },
 })
