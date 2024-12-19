@@ -72,9 +72,14 @@ set('n', '<M-s>', '<C-W>-')
 
 set('n', 'Q', '<nop>')
 
+-- Navigate quickfix list
+set('n', '<M-j>', '<cmd>cnext<CR>')
+set('n', '<M-k>', '<cmd>cprev<CR>')
+set('n', '<M-h>', '<cmd>copen<CR>') -- Open quickfix list
+
 -- Set local settings for terminal buffers
 vim.api.nvim_create_autocmd('TermOpen', {
-  group = vim.api.nvim_create_augroup('custom-term-open', {}),
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
   callback = function()
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
@@ -87,6 +92,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 -- Exit terminal mode
 set('t', '<esc>', '<c-\\><c-n>')
 
+local job_id = 0
 -- Open a terminal at the bottom of the screen with a fixed height.
 set('n', ',st', function()
   vim.cmd.new()
@@ -94,6 +100,12 @@ set('n', ',st', function()
   vim.api.nvim_win_set_height(0, 12)
   vim.wo.winfixheight = true
   vim.cmd.term()
+
+  job_id = vim.bo.channel
+end)
+
+set('n', '<space>cr', function()
+  vim.fn.chansend(job_id, { 'cargo run\r\n' })
 end)
 
 -- Highlight when yanking (copying) text
