@@ -27,8 +27,6 @@ require('lazy').setup({
     },
     -- Icons
     ui = { icons = vim.g.have_nerd_font and {} or {} },
-    -- Git symbols at the left
-    { 'lewis6991/gitsigns.nvim', opts = {} },
     -- Colorscheme
     {
       'rebelot/kanagawa.nvim',
