@@ -61,6 +61,7 @@ return {
             filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'svelte' },
           })
         end,
+        ['rust_analyzer'] = function() end,
       })
     end,
   },
