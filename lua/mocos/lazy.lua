@@ -39,7 +39,5 @@ require('lazy').setup({
         vim.cmd.hi('Comment gui=none')
       end,
     },
-    -- Better menu input for rename and others
-    { 'stevearc/dressing.nvim', event = 'VeryLazy', enabled = false },
   },
 })
