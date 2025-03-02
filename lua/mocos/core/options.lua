@@ -39,7 +39,7 @@ set.undodir = os.getenv('HOME') .. '/.vim/undodir'
 set.undofile = true
 
 -- Disable dangling highlights
-set.hlsearch = true
+set.hlsearch = false
 set.incsearch = true
 
 -- Enable 24-bit RGB colors
@@ -56,7 +56,7 @@ set.isfname:append('@-@')
 set.updatetime = 250
 
 -- Decrease mapped sequence wait time
-set.timeoutlen = 300
+set.timeoutlen = 500
 
 -- Turn the guide column at 80 characters
 set.colorcolumn = '80'
@@ -76,7 +76,7 @@ set.cursorline = false
 set.path:append('**')
 
 set.spelllang = 'en_us'
-set.spell = true
+set.spell = false
 
 -- Deactivate default mode status
 set.showmode = false
