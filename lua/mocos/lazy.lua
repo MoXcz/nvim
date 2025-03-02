@@ -39,6 +39,8 @@ require('lazy').setup({
         vim.cmd.hi('Comment gui=none')
       end,
     },
+    { "rose-pine/neovim" },
+    { "sainnhe/gruvbox-material" },
     -- Highlight to do's
     {
       'folke/todo-comments.nvim',
@@ -51,6 +53,6 @@ require('lazy').setup({
       config = function()
         require("colorizer").setup()
       end
-    }
+    },
   },
 })
