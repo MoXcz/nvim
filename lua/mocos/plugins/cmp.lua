@@ -16,6 +16,10 @@ return {
 
     version = 'v0.*',
     opts = {
+      cmdline = {
+        enabled = true,
+        completion = { menu = { auto_show = true } },
+      },
       keymap = { preset = 'default' },
       appearance = {
         use_nvim_cmp_as_default = true,
@@ -32,5 +36,6 @@ return {
         },
       },
     },
+    opts_extend = { "sources.default" }
   },
 }
