@@ -18,13 +18,6 @@ require('lazy').setup({
   spec = {
     change_detection = { notify = false, enabled = false },
     { import = 'mocos.plugins' },
-    -- Undotree
-    {
-      'mbbill/undotree',
-      config = function()
-        vim.keymap.set('n', '<leader>ut', vim.cmd.UndotreeToggle)
-      end,
-    },
     -- Icons
     ui = { icons = vim.g.have_nerd_font and {} or {} },
     -- Colorscheme
