@@ -23,13 +23,12 @@ require('lazy').setup({
     -- Colorscheme
     {
       'rebelot/kanagawa.nvim',
+      opts = { compile = true },
       config = function()
         vim.cmd.colorscheme('kanagawa-dragon')
+        -- For transpareny on floating windows and current buffer
         vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
         vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-
-        -- You can configure highlights by doing something like:
-        vim.cmd.hi('Comment gui=none')
       end,
     },
     { "rose-pine/neovim" },
