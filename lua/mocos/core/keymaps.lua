@@ -72,11 +72,6 @@ set('n', '<M-s>', '<C-W>-')
 
 set('n', 'Q', '<nop>')
 
--- Navigate quickfix list
-set('n', '<M-j>', '<cmd>cnext<CR>')
-set('n', '<M-k>', '<cmd>cprev<CR>')
-set('n', '<M-h>', '<cmd>copen<CR>') -- Open quickfix list
-
 set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Set local settings for terminal buffers
