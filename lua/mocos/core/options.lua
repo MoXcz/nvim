@@ -1,5 +1,12 @@
 local set = vim.opt
 
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
+
 -- Set leader key to <space>
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
