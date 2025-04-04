@@ -13,7 +13,20 @@ return {
     local mason_lspconfig = require('mason-lspconfig')
     mason.setup({})
     mason_lspconfig.setup({
-      ensure_installed = { 'lua_ls', 'rust_analyzer', 'html', 'gopls', 'emmet_ls', 'ruby_lsp', 'ts_ls', 'ruff' },
+      ensure_installed = {
+        'lua_ls',
+        'rust_analyzer',
+        'html',
+        'emmet_ls',
+        'ruby_lsp',
+        'ts_ls',
+        'pylsp',
+        -- Go
+        'gopls',
+        'templ',
+        'htmx',
+        'tailwindcss'
+      },
     })
     require('mason-tool-installer').setup({
       ensure_installed = { 'prettier', 'google-java-format', 'black', 'clangd', 'marksman', 'codelldb' },

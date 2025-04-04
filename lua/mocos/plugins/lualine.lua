@@ -15,7 +15,6 @@ return {
   config = function()
     require('lualine').setup({
       options = {
-        theme = 'gruvbox-material',
         icons_enabled = true,
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
@@ -41,8 +40,8 @@ return {
           {
             'harpoon2',
             icon = '',
-            indicators = { '1', '2', '3', '4' },
-            active_indicators = { '[1]', '[2]', '[3]', '[4]' },
+            indicators = { '1', '2', '3', '4', '5' },
+            active_indicators = { '[1]', '[2]', '[3]', '[4]', '[5]' },
             _separator = ' | ',
             no_harpoon = 'Harpoon not loaded',
           },

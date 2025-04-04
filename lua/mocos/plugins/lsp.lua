@@ -37,6 +37,31 @@ return {
           })
         end,
         ['rust_analyzer'] = function() end,
+        ['html'] = function()
+          lspconfig['html'].setup({
+            capabilities = capabilities,
+            filetypes = { 'html', 'templ' },
+          })
+        end,
+        ['htmx'] = function()
+          lspconfig['htmx'].setup({
+            capabilities = capabilities,
+            filetypes = { 'html', 'templ' },
+          })
+        end,
+        ['tailwindcss'] = function()
+          lspconfig['tailwindcss'].setup({
+            capabilities = capabilities,
+            filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+            settings = {
+              tailwindCSS = {
+                includeLanguages = {
+                  templ = "html",
+                },
+              },
+            }
+          })
+        end
       })
     end,
   },

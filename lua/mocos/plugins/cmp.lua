@@ -14,7 +14,7 @@ return {
     'saghen/blink.cmp',
     dependencies = { 'rafamadriz/friendly-snippets', 'folke/lazydev.nvim' },
 
-    version = 'v0.*',
+    version = 'v1.*',
     opts = {
       cmdline = {
         enabled = true,
@@ -25,6 +25,7 @@ return {
         use_nvim_cmp_as_default = true,
         nerd_font_variant = 'mono',
       },
+      completion = { trigger = { show_on_trigger_character = true } },
       -- experimental signature help support
       signature = { enabled = true },
       sources = {
@@ -35,6 +36,7 @@ return {
           lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
         },
       },
+      fuzzy = { implementation = "prefer_rust_with_warning" }
     },
     opts_extend = { "sources.default" }
   },
