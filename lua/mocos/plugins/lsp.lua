@@ -10,16 +10,7 @@ return {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function()
           local key = vim.keymap.set
-          key('n', '<leader>rd', ':LspStop<CR>')
-          -- Rename the variable under your cursor.
-          key('n', 'grn', vim.lsp.buf.rename)
-          -- Execute a code action, usually your cursor needs to be on top of an error
-          -- or a suggestion from your LSP for this to activate.
-          key({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action)
-          key('n', '<leader>dl', vim.diagnostic.open_float)
-          key('n', '[d', vim.diagnostic.goto_prev)
-          key('n', ']d', vim.diagnostic.goto_next)
-          key('n', 'K', vim.lsp.buf.hover)
+          key('n', 'grs', ':LspStop<CR>')
         end,
       })
 
