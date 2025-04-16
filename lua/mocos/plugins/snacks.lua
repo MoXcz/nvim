@@ -115,6 +115,7 @@ return {
     q = "cancel",
   },
   init = function()
+    vim.g.autoformat = true
     vim.api.nvim_create_autocmd('User', {
       pattern = 'VeryLazy',
       callback = function()
@@ -128,6 +129,21 @@ return {
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
         -- Create some toggle mappings
+
+        -- From here: https://github.com/stevearc/conform.nvim/issues/192
+        Snacks.toggle
+            .new({
+              id = "Format on Save",
+              name = "Format on Save",
+              get = function()
+                return vim.g.autoformat
+              end,
+              set = function(_)
+                vim.g.autoformat = not vim.g.autoformat
+              end,
+            })
+            :map("<leader>uf")
+
         Snacks.toggle.option('spell', { name = 'Spelling' }):map('<leader>us')
         Snacks.toggle.option('wrap', { name = 'Wrap' }):map('<leader>uw')
         Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map('<leader>uL')
