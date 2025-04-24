@@ -25,11 +25,14 @@ return {
         'gopls',
         'templ',
         'htmx',
-        'tailwindcss'
+        'tailwindcss',
+        'bashls',
+        'zls',
+        'clangd'
       },
     })
     require('mason-tool-installer').setup({
-      ensure_installed = { 'prettier', 'google-java-format', 'black', 'clangd', 'marksman', 'codelldb' },
+      ensure_installed = { 'prettier', 'google-java-format', 'black', 'marksman', 'codelldb' },
     })
   end,
 }

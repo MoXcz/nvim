@@ -31,13 +31,13 @@ return {
         ['html'] = function()
           lspconfig['html'].setup({
             capabilities = capabilities,
-            filetypes = { 'html', 'templ' },
+            filetypes = { 'html', 'templ', 'template' },
           })
         end,
         ['htmx'] = function()
           lspconfig['htmx'].setup({
             capabilities = capabilities,
-            filetypes = { 'html', 'templ' },
+            filetypes = { 'html', 'templ', 'template' },
           })
         end,
         ['tailwindcss'] = function()
