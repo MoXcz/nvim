@@ -3,9 +3,8 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    scroll = { enabled = false },
     bigfile = { enabled = true, notify = true, size = 1.5 * 1024 * 1024 },
-    animate = { enabled = false },
+    animate = { enabled = false, },
     notifier = { enabled = true, tiemout = 3000 },
     notify = { enabled = true },
     quickfile = { enabled = true },
@@ -15,7 +14,7 @@ return {
     toggle = { enabled = true },
     input = { enabled = true },
     indent = { enabled = true },
-    picker = { enabled = true },
+    picker = { enabled = true, hidden = true },
     explorer = { enabled = true },
     rename = { enabled = true },
     gitbrowse = { enabled = true },
@@ -28,6 +27,13 @@ return {
         { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
         { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
         { section = "startup" },
+        function()
+          return {
+            align = 'center',
+            text = "v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch,
+            padding = 1,
+          }
+        end,
       },
     },
   },

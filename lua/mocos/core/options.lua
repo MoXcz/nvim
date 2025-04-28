@@ -68,9 +68,6 @@ set.timeoutlen = 500
 -- Turn the guide column at 80 characters
 set.colorcolumn = '80'
 
--- To automatically start a new line after 80 characters
-set.textwidth = 80
-
 -- See difference between spaces, tabs and whitespaces
 set.list = true
 set.listchars = { tab = '» ', trail = '·', nbsp = '␣' }

@@ -25,7 +25,7 @@ require('lazy').setup({
       'rebelot/kanagawa.nvim',
       opts = { compile = true },
       config = function()
-        vim.cmd.colorscheme('rose-pine-moon')
+        vim.cmd.colorscheme('kanagawa-dragon')
       end,
     },
     { "rose-pine/neovim" },

@@ -18,16 +18,13 @@ return {
         'rust_analyzer',
         'html',
         'emmet_ls',
-        'ruby_lsp',
         'ts_ls',
         'pylsp',
-        -- Go
         'gopls',
         'templ',
         'htmx',
         'tailwindcss',
         'bashls',
-        'zls',
         'clangd'
       },
     })
