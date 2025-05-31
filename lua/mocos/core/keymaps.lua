@@ -85,6 +85,7 @@ map('n', ',st', function()
   vim.api.nvim_win_set_height(0, 12)
   vim.wo.winfixheight = true
   vim.cmd.term()
+  vim.cmd.startinsert()
 
   job_id = vim.bo.channel
 end)
