@@ -1,12 +1,5 @@
 local set = vim.opt
 
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-})
-
 -- Set leader key to <space>
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -88,3 +81,10 @@ set.showmode = false
 -- Case insensitive search unless it has one or more capital letters in the search term
 set.ignorecase = true
 set.smartcase = true
+
+vim.diagnostic.config({
+  virtual_text = true, -- Show diagnostics inline
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
