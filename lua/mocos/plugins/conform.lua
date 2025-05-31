@@ -16,13 +16,14 @@ return {
         svelte = { 'prettier' },
         css = { 'prettier' },
         html = { 'prettier' },
-        json = { 'prettier' },
         yaml = { 'prettier' },
         graphql = { 'prettier' },
         liquid = { 'prettier' },
         cpp = { 'clangd' },
         java = { 'google-java-format' },
         c = { 'clang-format' },
+        json = { 'fixjson' },
+        jsonc = { 'fixjson' },
 
         -- "_" run formatters on filetypes that don't have other formatters configured.
         ['_'] = { 'trim_whitespace' },

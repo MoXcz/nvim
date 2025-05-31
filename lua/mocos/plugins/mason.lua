@@ -1,7 +1,7 @@
 return {
-  'williamboman/mason.nvim',
+  'mason-org/mason.nvim',
   dependencies = {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     'olrtg/nvim-emmet',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
   },
@@ -19,9 +19,9 @@ return {
         'html',
         'emmet_ls',
         'ts_ls',
-        'pylsp',
         'gopls',
         'templ',
+        'pyright',
         'htmx',
         'tailwindcss',
         'bashls',
