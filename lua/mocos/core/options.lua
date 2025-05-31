@@ -24,6 +24,9 @@ set.tabstop = 2      -- set tab width (spaces)
 set.softtabstop = 2  -- editing operations width
 set.shiftwidth = 2   -- Indentation width
 
+-- edit virtual space at the end of the line (useful for line block mode when editing multiple lines)
+set.virtualedit = 'block'
+
 -- Indent based on previous indentation level smartly
 set.autoindent = true
 set.smartindent = true
