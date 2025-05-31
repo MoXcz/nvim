@@ -1,86 +1,85 @@
 -- To avoid redundancy
-local set = vim.keymap.set
+local map = vim.keymap.set
 
 vim.g.mapleader = ' '
 -- Directory listing : changed to oil.nvim
 -- set("n", "<leader>pd", vim.cmd.Ex)
 
-set('v', '<leader>x', ':.lua<CR>', { desc = 'Execute highlighted' })
-set('n', '<leader>x', ':.lua<CR>', { desc = 'Execute the current line' })
-set('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = 'Source the current file' })
+map('v', '<leader>x', ':.lua<CR>', { desc = 'Execute highlighted' })
+map('n', '<leader>x', ':.lua<CR>', { desc = 'Execute the current line' })
+map('n', '<leader><leader>x', '<cmd>source %<CR>', { desc = 'Source the current file' })
 
 -- Move between splits using vim motions
-set('n', '<C-j>', '<C-w><C-j>')
-set('n', '<C-k>', '<C-w><C-k>')
-set('n', '<C-l>', '<C-w><C-l>')
-set('n', '<C-h>', '<C-w><C-h>')
+map('n', '<C-j>', '<C-w><C-j>')
+map('n', '<C-k>', '<C-w><C-k>')
+map('n', '<C-l>', '<C-w><C-l>')
+map('n', '<C-h>', '<C-w><C-h>')
 
 -- Move highlighted text
-set('v', 'J', ":m '>+1<CR>gv=gv")
-set('v', 'K', ":m '<-2<CR>gv=gv")
+map('v', 'J', ":m '>+1<CR>gv=gv")
+map('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Avoid weird J spacing
-set('n', 'J', 'mzJ`z')
+map('n', 'J', 'mzJ`z')
 
 -- Sets cursor in the middle when half-page jumping and in search terms
-set('n', '<C-d>', '<C-d>zz')
-set('n', '<C-u>', '<C-u>zz')
-set('n', 'n', 'nzzzv')
-set('n', 'N', 'Nzzzv')
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
 
 -- Buffer will not hold the deleted item
-set('x', '<leader>p', [["_dP]])
-set({ 'n', 'v' }, '<leader>dd', [["_d]])
+map('x', '<leader>p', [["_dP]])
+map({ 'n', 'v' }, '<leader>dd', [["_d]])
 
 -- Yanking will be saved to system clipboard
-set({ 'n', 'v' }, '<leader>y', [["+y]])
-set('n', '<leader>Y', [["+Y]])
+map({ 'n', 'v' }, '<leader>y', [["+y]])
+map('n', '<leader>Y', [["+Y]])
 
 -- Format code : Changed to Conform
 -- vim.keymap.set("n", "<leader>af", vim.lsp.buf.format)
 
 -- Replace current word in all file
-set('n', '<leader>ss', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map('n', '<leader>ss', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Creates executable file
-set('n', '<leader>xc', '<cmd>!chmod +x %<CR>', { silent = true })
+map('n', '<leader>xc', '<cmd>!chmod +x %<CR>', { silent = true })
 
 -- Execute current file
-set('n', '<leader>xx', '<cmd>!bash %<CR>', { silent = true })
+map('n', '<leader>xx', '<cmd>!bash %<CR>', { silent = true })
 
 -- Create new tmux session using script to fuzzy find directory
-set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer.sh<CR>')
+map('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer.sh<CR>')
 
 -- To split windows
-set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
-set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
-set('n', '<leader>se', '<C-w>=', { desc = 'Make splits equal size' })
-set('n', '<leader>sx', '<cmd>close<CR>', { desc = 'Close current split' })
+map('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
+map('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
+map('n', '<leader>se', '<C-w>=', { desc = 'Make splits equal size' })
+map('n', '<leader>sx', '<cmd>close<CR>', { desc = 'Close current split' })
 
 -- To create new tabs
-set('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' })
-set('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' })
-set('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' })
-set('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })
-set('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
+map('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' })
+map('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' })
+map('n', '<leader>tn', '<cmd>tabn<CR>', { desc = 'Go to next tab' })
+map('n', '<leader>tp', '<cmd>tabp<CR>', { desc = 'Go to previous tab' })
+map('n', '<leader>tf', '<cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
 
 -- To control the size of splits (width/height)
-set('n', '<M-,>', '<c-w>5<')
-set('n', '<M-.>', '<c-w>5>')
-set('n', '<M-t>', '<C-W>+')
-set('n', '<M-s>', '<C-W>-')
+map('n', '<M-,>', '<c-w>5<')
+map('n', '<M-.>', '<c-w>5>')
+map('n', '<M-t>', '<C-W>+')
+map('n', '<M-s>', '<C-W>-')
 
-set('n', 'Q', '<nop>')
+map('n', 'Q', '<nop>')
 
-set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Exit terminal mode
-set('t', '<Esc><Esc>', '<C-\\><C-n>')
+map('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 local job_id = 0
 -- Open a terminal at the bottom of the screen with a fixed height.
-set('n', ',st', function()
+map('n', ',st', function()
   vim.cmd.new()
   vim.cmd.wincmd('J')
   vim.api.nvim_win_set_height(0, 12)
@@ -90,6 +89,7 @@ set('n', ',st', function()
   job_id = vim.bo.channel
 end)
 
-set('n', '<space>cr', function()
+-- Run commands to the terminal
+map('n', '<space>cr', function()
   vim.fn.chansend(job_id, { 'cargo run\r\n' })
 end)
