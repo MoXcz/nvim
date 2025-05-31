@@ -1,0 +1,23 @@
+{
+  "Error handling": {
+    "prefix": "iferr",
+    "body": [
+      "if err != nil {",
+      "  $0",
+      "  return",
+      "}"
+    ],
+    "description": "Go error handling"
+  },
+  "Main package": {
+    "prefix": "main",
+    "body": [
+      "package main",
+      "",
+      "func main() {",
+      "  $0",
+      "}"
+    ],
+    "description": "Go error handling"
+  }
+}
