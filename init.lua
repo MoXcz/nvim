@@ -1,2 +1,4 @@
-require('mocos.core')
+require("mocos.core.options")
+require("mocos.core.keymaps")
+require("mocos.core.autocmds")
 require('mocos.lazy')
