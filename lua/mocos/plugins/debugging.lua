@@ -2,7 +2,7 @@ return {
   'mfussenegger/nvim-dap',
   dependencies = {
     -- Add UI
-    'rcarriga/nvim-dap-ui',
+    "rcarriga/nvim-dap-ui",
     'nvim-neotest/nvim-nio',
     'leoluz/nvim-dap-go',
     -- Installs the debug adapters automatically

@@ -25,7 +25,7 @@ return {
           vim.cmd.Git({ 'pull', '--rebase' })
         end, opts)
 
-        -- Set branch to push
+        -- Set upstrem branch while push
         vim.keymap.set('n', '<leader>tt', ':Git push -u origin ', opts)
       end,
     })
