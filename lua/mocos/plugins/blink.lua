@@ -15,17 +15,40 @@ return {
     dependencies = { 'rafamadriz/friendly-snippets', 'folke/lazydev.nvim' },
     version = 'v1.*',
     opts = {
+      signature = { enabled = true },
       cmdline = {
         enabled = true,
         completion = { menu = { auto_show = true } },
       },
       keymap = { preset = 'default' },
       appearance = {
+        use_nvim_cmp_as_default = false,
         nerd_font_variant = 'mono',
       },
       completion = {
-        trigger = { show_on_trigger_character = true, },
-        documentation = { auto_show = true, auto_show_delay_ms = 500, treesitter_highlighting = false },
+        trigger = { show_on_trigger_character = true },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 500,
+          window = {
+            border = nil,
+            scrollbar = false,
+            winhighlight = 'Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,EndOfBuffer:BlinkCmpDoc',
+          },
+        },
+        menu = {
+          border = nil,
+          scrolloff = 1,
+          scrollbar = false,
+          draw = {
+            columns = {
+              { 'kind_icon' },
+              { 'label', 'label_description', gap = 1 },
+              { 'kind' },
+              { 'source_name' },
+            },
+          },
+        },
       },
       sources = {
         default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
@@ -35,8 +58,8 @@ return {
           lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink', score_offset = 100 },
         },
       },
-      fuzzy = { implementation = "prefer_rust_with_warning" }
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
-    opts_extend = { "sources.default" }
+    opts_extend = { 'sources.default' },
   },
 }
