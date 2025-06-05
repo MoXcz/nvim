@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 return {
   {
     'nvim-treesitter/nvim-treesitter',
@@ -6,8 +5,11 @@ return {
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup({
-        ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline', 'regex', 'templ' },
-        auto_install = true,
+        ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'markdown', 'markdown_inline', 'regex', 'templ', 'bash', 'rust', 'python' },
+        sync_install = false,
+        auto_install = true, -- install missing parsers when entering buffer
+        ignore_install = {},
+        modules = {},
         highlight = {
           enable = true,
           -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
@@ -20,10 +22,20 @@ return {
           end,
           additional_vim_regex_highlighting = false,
         },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            -- This works with nodes and scopes (:InspectTree)
+            init_selection = '<C-n>',    -- maps in normal mode to init the node/scope selection
+            node_incremental = '<C-n>',  -- increment to the upper named parent
+            scope_incremental = '<C-s>', -- increment to the upper scope (as defined in locals.scm)
+            node_decremental = '<C-p>',  -- decrement to the previous node
+          },
+        },
         textobjects = {
           select = {
             enable = true,
-            lookahead = true,
+            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
             keymaps = {
               ['aa'] = '@parameter.outer',
               ['ia'] = '@parameter.inner',
@@ -37,6 +49,14 @@ return {
               ['al'] = '@loop.outer',
               ['at'] = '@comment.outer',
             },
+            selection_modes = {
+              ['@parameter.outer'] = 'v',   -- charwise
+              ['@function.outer'] = 'V',    -- charwise
+              ['@class.outer'] = '<c-v>',   -- charwise
+              ['@conditional.inner'] = 'V', -- linewise
+              ['@loop.inner'] = 'V',        -- linewise
+              ['@comment.outer'] = 'V',     -- linewise
+            }
           },
         },
         move = {
