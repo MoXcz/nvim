@@ -1,7 +1,6 @@
 -- To avoid redundancy
 local map = vim.keymap.set
 
-vim.g.mapleader = ' '
 -- Directory listing : changed to oil.nvim
 -- set("n", "<leader>pd", vim.cmd.Ex)
 
