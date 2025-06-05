@@ -17,3 +17,11 @@ vim.api.nvim_create_autocmd('TermOpen', {
     vim.bo.filetype = 'terminal'
   end,
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function()
+    local key = vim.keymap.set
+    key('n', 'grs', ':LspStop<CR>')
+  end,
+})
