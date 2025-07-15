@@ -12,6 +12,7 @@ return {
     local mason = require('mason')
     local mason_lspconfig = require('mason-lspconfig')
     mason.setup({})
+    -- LSPs
     mason_lspconfig.setup({
       ensure_installed = {
         'lua_ls',
@@ -22,12 +23,14 @@ return {
         'gopls',
         'templ',
         'pyright',
-        'htmx',
+        -- 'htmx',
         'tailwindcss',
         'bashls',
-        'clangd'
+        'clangd',
+        'harper_ls'
       },
     })
+    -- Everything else...
     require('mason-tool-installer').setup({
       ensure_installed = { 'prettier', 'google-java-format', 'black', 'marksman', 'codelldb' },
     })
