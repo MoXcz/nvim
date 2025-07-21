@@ -1,9 +1,9 @@
 return {
   settings = {
-      ["harper-ls"] = {
+    ['harper-ls'] = {
       userDictPath = '~/dotfiles/dict.txt',
       fileDictPath = '~/dotfiles/dict.txt',
-    }
+    },
   },
-  filetypes = { 'markdown' }
+  filetypes = { 'markdown' },
 }

@@ -1,4 +1,4 @@
 return {
   cmd = { 'htmx-lsp' },
-  filetypes = { 'html', 'templ', 'template' }
+  filetypes = { 'html', 'templ', 'template' },
 }
