@@ -25,13 +25,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     key('n', 'grs', ':LspStop<CR>')
   end,
 })
-
--- go install golang.org/x/tools/cmd/goimports@latest
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.go',
-  callback = function()
-    vim.cmd('silent! write')
-    vim.fn.system({ 'goimports', '-w', vim.api.nvim_buf_get_name(0) })
-    vim.cmd('edit!')
-  end,
-})
