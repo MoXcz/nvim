@@ -23,6 +23,8 @@ return {
         c = { 'clang-format' },
         json = { 'fixjson' },
         jsonc = { 'fixjson' },
+        lua = { 'stylua' },
+        rust = { 'rustfmt' },
 
         -- "_" run formatters on filetypes that don't have other formatters configured.
         ['_'] = { 'trim_whitespace' },
