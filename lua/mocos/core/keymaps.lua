@@ -76,6 +76,8 @@ map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Exit terminal mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>')
 
+map('n', '<leader>m', '<cmd>make<CR>', { desc = 'Run :make' })
+
 local job_id = 0
 -- Open a terminal at the bottom of the screen with a fixed height.
 map('n', ',st', function()
