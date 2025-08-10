@@ -50,12 +50,6 @@ map('n', '<leader>xx', '<cmd>!bash %<CR>', { silent = true })
 -- Create new tmux session using script to fuzzy find directory
 map('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer.sh<CR>')
 
--- To split windows
-map('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
-map('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
-map('n', '<leader>se', '<C-w>=', { desc = 'Make splits equal size' })
-map('n', '<leader>sx', '<cmd>close<CR>', { desc = 'Close current split' })
-
 -- To create new tabs
 map('n', '<leader>to', '<cmd>tabnew<CR>', { desc = 'Open new tab' })
 map('n', '<leader>tx', '<cmd>tabclose<CR>', { desc = 'Close current tab' })
@@ -70,7 +64,6 @@ map('n', '<M-t>', '<C-W>+')
 map('n', '<M-s>', '<C-W>-')
 
 map('n', 'Q', '<nop>')
-
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Exit terminal mode
@@ -78,7 +71,7 @@ map('t', '<Esc>', '<C-\\><C-n>')
 
 map('n', '<leader>m', '<cmd>make<CR>', { desc = 'Run :make' })
 
-local job_id = 0
+-- local job_id = 0
 -- Open a terminal at the bottom of the screen with a fixed height.
 map('n', ',st', function()
   vim.cmd.new()
@@ -88,10 +81,9 @@ map('n', ',st', function()
   vim.cmd.term()
   vim.cmd.startinsert()
 
-  job_id = vim.bo.channel
+  -- job_id = vim.bo.channel
 end)
 
--- Run commands to the terminal
-map('n', '<space>cr', function()
-  vim.fn.chansend(job_id, { 'cargo run\r\n' })
-end)
+-- map('n', '<space>cr', function()
+--   vim.fn.chansend(job_id, { 'cargo run\r\n' })
+-- end)
