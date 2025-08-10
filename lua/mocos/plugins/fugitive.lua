@@ -32,5 +32,6 @@ return {
 
     vim.keymap.set('n', 'gu', '<cmd>diffget //2<CR>')
     vim.keymap.set('n', 'gh', '<cmd>diffget //3<CR>')
+    vim.keymap.set('n', '<leader>gd', '<cmd>Gdiffsplit!<CR>', { desc = 'Split current buffer changes (current branch)' })
   end,
 }

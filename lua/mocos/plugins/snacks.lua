@@ -67,7 +67,6 @@ return {
     { "<leader>gf",  function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
     { "<leader>gc",  function() Snacks.picker.git_status() end,                              desc = "Git Status" },
     { "<leader>gS",  function() Snacks.picker.git_stash() end,                               desc = "Git Stash" },
-    { "<leader>gd",  function() Snacks.picker.git_diff() end,                                desc = "Git Diff (Hunks)" },
     { '<leader>gB',  function() Snacks.gitbrowse() end,                                      desc = 'Git Browse', },
     -- Lazygit
     { '<leader>lgf', function() Snacks.lazygit.log_file() end,                               desc = 'Lazygit Current File History', },
