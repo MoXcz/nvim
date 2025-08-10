@@ -27,7 +27,8 @@ return {
         'tailwindcss',
         'bashls',
         'clangd',
-        'harper_ls'
+        'harper_ls',
+        'elixirls'
       },
     })
     -- Everything else...
