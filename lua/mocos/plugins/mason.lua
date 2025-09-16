@@ -28,7 +28,7 @@ return {
         'bashls',
         'clangd',
         'harper_ls',
-        'elixirls'
+        'expert'
       },
     })
     -- Everything else...
