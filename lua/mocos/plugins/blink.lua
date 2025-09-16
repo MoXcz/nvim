@@ -20,7 +20,10 @@ return {
         enabled = true,
         completion = { menu = { auto_show = true } },
       },
-      keymap = { preset = 'default' },
+      keymap = {
+        preset = 'default',
+        ['<C-e>'] = { 'show_and_insert', 'fallback' }
+      },
       appearance = {
         use_nvim_cmp_as_default = false,
         nerd_font_variant = 'mono',
@@ -40,10 +43,11 @@ return {
           border = nil,
           scrolloff = 1,
           scrollbar = false,
+          auto_show = false,
           draw = {
             columns = {
               { 'kind_icon' },
-              { 'label', 'label_description', gap = 1 },
+              { 'label',      'label_description', gap = 1 },
               { 'kind' },
               { 'source_name' },
             },

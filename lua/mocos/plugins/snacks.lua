@@ -22,7 +22,7 @@ return {
     bufdelete = { enabled = true },
     zen = { enabled = false },
     dashboard = {
-      enabled = true,
+      enabled = false,
       sections = {
         { section = 'header' },
         { icon = ' ', title = 'Keymaps', section = 'keys', indent = 2, padding = 1 },
