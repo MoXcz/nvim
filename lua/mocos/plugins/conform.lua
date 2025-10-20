@@ -26,6 +26,7 @@ return {
         lua = { 'stylua' },
         rust = { 'rustfmt' },
         elixir = { lsp_format = 'prefer' },
+        odin = { 'odinfmt' },
 
         -- "_" run formatters on filetypes that don't have other formatters configured.
         ['_'] = { 'trim_whitespace' },
