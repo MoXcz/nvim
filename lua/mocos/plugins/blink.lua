@@ -12,7 +12,7 @@ return {
   },
   {
     'saghen/blink.cmp',
-    dependencies = { 'rafamadriz/friendly-snippets', 'folke/lazydev.nvim' },
+    dependencies = { 'rafamadriz/friendly-snippets', 'folke/lazydev.nvim', { 'yus-works/csc.nvim', opts = {} }, },
     version = 'v1.*',
     opts = {
       signature = { enabled = true },
@@ -20,10 +20,7 @@ return {
         enabled = true,
         completion = { menu = { auto_show = true } },
       },
-      keymap = {
-        preset = 'default',
-        ['<C-e>'] = { 'show_and_insert', 'fallback' }
-      },
+      keymap = { preset = 'default' },
       appearance = {
         use_nvim_cmp_as_default = false,
         nerd_font_variant = 'mono',
@@ -43,7 +40,6 @@ return {
           border = nil,
           scrolloff = 1,
           scrollbar = false,
-          auto_show = false,
           draw = {
             columns = {
               { 'kind_icon' },
