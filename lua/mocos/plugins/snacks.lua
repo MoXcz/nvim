@@ -1,5 +1,5 @@
 return {
-  'folke/snacks.nvim',
+  "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
   opts = {
@@ -24,14 +24,14 @@ return {
     dashboard = {
       enabled = false,
       sections = {
-        { section = 'header' },
-        { icon = ' ', title = 'Keymaps', section = 'keys', indent = 2, padding = 1 },
-        { icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 1 },
-        { section = 'startup' },
+        { section = "header" },
+        { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+        { section = "startup" },
         function()
           return {
-            align = 'center',
-            text = 'v' .. vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch,
+            align = "center",
+            text = "v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch,
             padding = 1,
           }
         end,
@@ -67,8 +67,14 @@ return {
     { "<leader>gL",  function() Snacks.picker.git_log_line() end,                                           desc = "Git Log Line" },
     { "<leader>gf",  function() Snacks.picker.git_log_file() end,                                           desc = "Git Log File" },
     { "<leader>gc",  function() Snacks.picker.git_status() end,                                             desc = "Git Status" },
+    { "<leader>gd",  function() Snacks.picker.git_diff() end,                                               desc = "Git Diff (Hunks)" },
     { "<leader>gS",  function() Snacks.picker.git_stash() end,                                              desc = "Git Stash" },
     { '<leader>gB',  function() Snacks.gitbrowse() end,                                                     desc = 'Git Browse', },
+    -- gh
+    { "<leader>gi",  function() Snacks.picker.gh_issue() end,                                               desc = "GitHub Issues (open)" },
+    { "<leader>gI",  function() Snacks.picker.gh_issue({ state = "all" }) end,                              desc = "GitHub Issues (all)" },
+    { "<leader>gp",  function() Snacks.picker.gh_pr() end,                                                  desc = "GitHub Pull Requests (open)" },
+    { "<leader>gP",  function() Snacks.picker.gh_pr({ state = "all" }) end,                                 desc = "GitHub Pull Requests (all)" },
     -- Lazygit
     { '<leader>lgf', function() Snacks.lazygit.log_file() end,                                              desc = 'Lazygit Current File History', },
     { '<leader>lgg', function() Snacks.lazygit() end,                                                       desc = 'Lazygit', },
@@ -97,6 +103,8 @@ return {
     { "<leader>sm",  function() Snacks.picker.marks() end,                                                  desc = "Marks" },
     { "<leader>sp",  function() Snacks.picker.lazy() end,                                                   desc = "Search for Plugin Spec" },
     { "<leader>sR",  function() Snacks.picker.resume() end,                                                 desc = "Resume" },
+    { "<leader>z",   function() Snacks.zen() end,                                                           desc = "Toggle Zen Mode" },
+    { "<leader>Z",   function() Snacks.zen.zoom() end,                                                      desc = "Toggle Zoom" },
     n_esc = { "<esc>", { "cmp_close", "cancel" }, mode = "n", expr = true },
     i_esc = { "<esc>", { "cmp_close", "stopinsert" }, mode = "i", expr = true },
     i_cr = { "<cr>", { "cmp_accept", "confirm" }, mode = "i", expr = true },
@@ -118,11 +126,17 @@ return {
         _G.bt = function()
           Snacks.debug.backtrace()
         end
-        vim.print = _G.dd              -- Override print to use snacks for `:=` command
-        vim.g._zen_mode_active = false -- Ensure the variable exists at startup
+
+        -- Override print to use snacks for `:=` command
+        if vim.fn.has("nvim-0.11") == 1 then
+          vim._print = function(_, ...)
+            dd(...)
+          end
+        else
+          vim.print = _G.dd
+        end
 
         -- Create some toggle mappings
-
         -- From here: https://github.com/stevearc/conform.nvim/issues/192
         Snacks.toggle
             .new({
@@ -139,33 +153,12 @@ return {
 
         Snacks.toggle.option('spell', { name = 'Spelling' }):map('<leader>us')
         Snacks.toggle.option('wrap', { name = 'Wrap' }):map('<leader>uw')
-        Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map('<leader>uL')
         Snacks.toggle.diagnostics():map('<leader>ud')
-        Snacks.toggle.line_number():map('<leader>ul')
         Snacks.toggle
             .option('conceallevel', { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
             :map('<leader>uc')
         Snacks.toggle.treesitter():map('<leader>uT')
-        Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' }):map('<leader>ub')
         Snacks.toggle.inlay_hints():map('<leader>uh')
-        Snacks.toggle
-            .new({
-              id = "Zen mode",
-              name = "Zen mode",
-              get = function()
-                -- There's no direct getter, but you can track it yourself.
-                return vim.g._zen_mode_active
-              end,
-              set = function(enable)
-                if enable then
-                  require("zen-mode").open()
-                else
-                  require("zen-mode").close()
-                end
-                vim.g._zen_mode_active = enable
-              end,
-            })
-            :map("<leader>uz")
       end,
     })
   end,
