@@ -1,12 +1,12 @@
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
-      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out,                            'WarningMsg' },
-      { '\nPress any key to exit...' },
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
     os.exit(1)
@@ -16,58 +16,75 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- This will load the "lazy" directory found at `lazypath` (where LazyVim was cloned)
-require('lazy').setup({
+require("lazy").setup({
   spec = {
     change_detection = { notify = false, enabled = false },
-    { import = 'mocos.plugins' },
+    { import = "mocos.plugins" },
     -- Icons
     ui = { icons = vim.g.have_nerd_font and {} or {} },
     -- Colorscheme
     {
-      'rebelot/kanagawa.nvim',
+      "rebelot/kanagawa.nvim",
       opts = { compile = true },
       config = function()
-        vim.cmd.colorscheme('kanagawa-dragon')
+        vim.cmd.colorscheme("kanagawa-dragon")
       end,
     },
-    { 'rose-pine/neovim' },
-    { 'sainnhe/gruvbox-material' },
-    { 'catppuccin/nvim',         name = 'catppuccin' },
+    { "rose-pine/neovim" },
+    { "sainnhe/gruvbox-material" },
+    { "catppuccin/nvim",         name = "catppuccin" },
     -- Highlight to do's
     {
-      'folke/todo-comments.nvim',
-      event = 'VimEnter',
-      dependencies = { 'nvim-lua/plenary.nvim' },
+      "folke/todo-comments.nvim",
+      event = "VimEnter",
+      dependencies = { "nvim-lua/plenary.nvim" },
       opts = { signs = false },
     },
     -- Look at that -> #0a4
     {
-      'norcalli/nvim-colorizer.lua',
+      "norcalli/nvim-colorizer.lua",
       config = function()
-        require('colorizer').setup()
+        require("colorizer").setup()
       end,
     },
     -- Zen mode
     {
-      'folke/zen-mode.nvim',
+      "folke/zen-mode.nvim",
     },
     {
-      'folke/twilight.nvim',
+      "folke/twilight.nvim",
     },
     {
       "mbbill/undotree",
       config = function()
         vim.keymap.set("n", "<leader>fu", vim.cmd.UndotreeToggle, { desc = "Undo history" })
-      end
+      end,
     },
     {
-      'MeanderingProgrammer/render-markdown.nvim',
-      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+      "MeanderingProgrammer/render-markdown.nvim",
+      dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
     },
     -- LSP defaults
     {
-      'neovim/nvim-lspconfig',
-    }
-
+      "neovim/nvim-lspconfig",
+    },
+    -- LSP information
+    {
+      "j-hui/fidget.nvim",
+      version = "1.6.1",
+      opts = {
+        -- options
+      },
+    },
+    -- split/join arrays, objects, dicts, etc...
+    {
+      "Wansmer/treesj",
+      keys = { "<space>m", "<space>j", "<space>s" },
+      dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
+      config = function()
+        require("treesj").setup({ --[[ your config ]]
+        })
+      end,
+    },
   },
 })

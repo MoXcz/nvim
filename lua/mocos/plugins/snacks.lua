@@ -90,7 +90,7 @@ return {
     { "<leader>,",   function() Snacks.picker.buffers() end,                                                desc = "Buffers" },
     { "<leader>:",   function() Snacks.picker.command_history() end,                                        desc = "Command History" },
     { "<leader>e",   function() Snacks.explorer() end,                                                      desc = "File Explorer" },
-    { '<leader>n',   function() Snacks.notifier.show_history() end,                                         desc = 'Notification History', },
+    { '<leader>fn',  function() Snacks.notifier.show_history() end,                                         desc = 'Notification History', },
     -- search
     { '<leader>s"',  function() Snacks.picker.registers() end,                                              desc = "Registers" },
     { '<leader>s/',  function() Snacks.picker.search_history() end,                                         desc = "Search History" },
