@@ -6,7 +6,7 @@ return {
     local conform = require("conform")
     conform.setup({
       formatters_by_ft = {
-        go = { "gofmt" },
+        go = { "gofmt", "goimports" },
         python = { "black" },
         javascript = { "prettier" },
         typescript = { "prettier" },
@@ -23,10 +23,11 @@ return {
         c = { "clang-format" },
         json = { "fixjson" },
         jsonc = { "fixjson" },
-        lua = { lsp_format = "prefer" },
+        lua = { "stylua" },
         rust = { "rustfmt" },
         elixir = { lsp_format = "prefer" },
         odin = { "odinfmt" },
+        elm = { "elm_format" },
 
         -- "_" run formatters on filetypes that don't have other formatters configured.
         ["_"] = { "trim_whitespace" },

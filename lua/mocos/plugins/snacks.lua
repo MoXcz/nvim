@@ -5,7 +5,7 @@ return {
   opts = {
     bigfile = { enabled = true, notify = true, size = 1.5 * 1024 * 1024 },
     animate = { enabled = false },
-    notifier = { enabled = true, tiemout = 3000 },
+    notifier = { enabled = true, timeout = 3000 },
     notify = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
@@ -46,7 +46,7 @@ return {
     { ']]',          function() Snacks.words.jump(vim.v.count1) end,                                        desc = 'Next Reference',               mode = { 'n', 't' }, },
     { '[[',          function() Snacks.words.jump(-vim.v.count1) end,                                       desc = 'Prev Reference',               mode = { 'n', 't' }, },
     -- Pickers
-    { "<leader>ff",  function() Snacks.picker.files() end,                                                  desc = "Find Files" },
+    { "<leader>ff",  function() Snacks.picker.files({action="replace"}) end,                                                  desc = "Find Files" },
     { "<leader>fs",  function() Snacks.picker.grep() end,                                                   desc = "Grep" },
     { "<leader>fg",  function() Snacks.picker.grep_word() end,                                              desc = "Visual selection or word",     mode = { "n", "x" } },
     { "<leader>fp",  function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,                desc = "Find Config File" },
@@ -85,6 +85,17 @@ return {
     { "grr",         function() Snacks.picker.lsp_references() end,                                         desc = "References" },
     { "gri",         function() Snacks.picker.lsp_implementations() end,                                    desc = "Goto Implementation" },
     { "gt",          function() Snacks.picker.lsp_type_definitions() end,                                   desc = "Goto T[y]pe Definition" },
+    { "gv",          function()
+        local params = vim.lsp.util.make_position_params()
+        vim.lsp.buf_request(0, "textDocument/definition", params, function(err, result, ctx)
+          if err or not result or vim.tbl_isempty(result) then
+            vim.notify("No definition found", vim.log.levels.WARN)
+            return
+          end
+          vim.cmd("vsplit")
+          vim.lsp.util.show_document(result[1], "utf-8", {focus=true})
+        end)
+      end,                                                                                                  desc = "Goto Definition in Vertical Split" },
     -- Top Pickers & Explorer
     { "<leader>sf",  function() Snacks.picker.smart() end,                                                  desc = "Smart Find Files" },
     { "<leader>,",   function() Snacks.picker.buffers() end,                                                desc = "Buffers" },

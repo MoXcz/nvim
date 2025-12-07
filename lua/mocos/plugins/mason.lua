@@ -32,8 +32,19 @@ return {
       },
     })
     -- Everything else...
-    require('mason-tool-installer').setup({
-      ensure_installed = { 'prettier', 'google-java-format', 'black', 'marksman', 'codelldb' },
+    require("mason-tool-installer").setup({
+      ensure_installed = {
+        "prettier",
+        "google-java-format",
+        "black",
+        "marksman",
+        "codelldb",
+        "goimports",
+        "impl",
+        "gomodifytags",
+        "golangci-lint",
+        "delve",
+      },
     })
   end,
 }
