@@ -14,7 +14,7 @@ return {
         typescriptreact = { "prettier" },
         svelte = { "prettier" },
         css = { "prettier" },
-        html = { "prettier" },
+        html = { lsp_format_opt = "prefer" },
         yaml = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
