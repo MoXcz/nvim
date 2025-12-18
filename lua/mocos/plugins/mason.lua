@@ -1,34 +1,35 @@
 return {
-  'mason-org/mason.nvim',
+  "mason-org/mason.nvim",
   dependencies = {
-    'mason-org/mason-lspconfig.nvim',
-    'olrtg/nvim-emmet',
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    "mason-org/mason-lspconfig.nvim",
+    "olrtg/nvim-emmet",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
     -- Emmet abbreviations
-    vim.keymap.set({ 'n', 'v' }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+    vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
     -- Enable mason
-    local mason = require('mason')
-    local mason_lspconfig = require('mason-lspconfig')
+    local mason = require("mason")
+    local mason_lspconfig = require("mason-lspconfig")
     mason.setup({})
     -- LSPs
     mason_lspconfig.setup({
       ensure_installed = {
-        'lua_ls',
-        'rust_analyzer',
-        'html',
-        'emmet_ls',
-        'ts_ls',
-        'gopls',
-        'templ',
-        'pyright',
+        "lua_ls",
+        "rust_analyzer",
+        "html",
+        "emmet_ls",
+        "ts_ls",
+        "gopls",
+        "templ",
+        "pyright",
         -- 'htmx',
-        'tailwindcss',
-        'bashls',
-        'clangd',
-        'harper_ls',
-        'expert'
+        "tailwindcss",
+        "bashls",
+        "clangd",
+        "harper_ls",
+        "expert",
+        "cssls",
       },
     })
     -- Everything else...

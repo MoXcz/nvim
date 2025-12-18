@@ -18,7 +18,6 @@ return {
         yaml = { "prettier" },
         graphql = { "prettier" },
         liquid = { "prettier" },
-        cpp = { "clangd" },
         java = { "google-java-format" },
         c = { "clang-format" },
         json = { "fixjson" },
