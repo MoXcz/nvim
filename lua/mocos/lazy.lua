@@ -15,14 +15,16 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
--- This will load the "lazy" directory found at `lazypath` (where LazyVim was cloned)
 require("lazy").setup({
+  change_detection = {
+    notify = false,
+    enabled = false,
+  },
+  ui = {
+    icons = vim.g.have_nerd_font and {} or {},
+  },
   spec = {
-    change_detection = { notify = false, enabled = false },
     { import = "mocos.plugins" },
-    -- Icons
-    ui = { icons = vim.g.have_nerd_font and {} or {} },
-    -- Colorscheme
     {
       "rebelot/kanagawa.nvim",
       opts = { compile = true },
@@ -33,7 +35,7 @@ require("lazy").setup({
     { "rose-pine/neovim" },
     { "sainnhe/gruvbox-material" },
     { "catppuccin/nvim",         name = "catppuccin" },
-    -- Highlight to do's
+
     {
       "folke/todo-comments.nvim",
       event = "VimEnter",
@@ -47,13 +49,10 @@ require("lazy").setup({
         require("colorizer").setup()
       end,
     },
-    -- Zen mode
-    {
-      "folke/zen-mode.nvim",
-    },
-    {
-      "folke/twilight.nvim",
-    },
+
+    { "folke/zen-mode.nvim" },
+    { "folke/twilight.nvim" },
+
     {
       "mbbill/undotree",
       config = function()
@@ -72,20 +71,18 @@ require("lazy").setup({
     {
       "j-hui/fidget.nvim",
       version = "1.6.1",
-      opts = {
-        -- options
-      },
+      opts = {},
     },
-    -- split/join arrays, objects, dicts, etc...
+
     {
       "Wansmer/treesj",
       keys = { "<space>m", "<space>j", "<space>s" },
-      dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
       config = function()
-        require("treesj").setup({ --[[ your config ]]
-        })
+        require("treesj").setup()
       end,
     },
+
     {
       "windwp/nvim-autopairs",
       event = "InsertEnter",
