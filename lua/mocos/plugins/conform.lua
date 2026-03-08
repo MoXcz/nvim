@@ -20,14 +20,16 @@ return {
         liquid = { "prettier" },
         java = { "google-java-format" },
         c = { "clang-format" },
-        json = { "fixjson" },
-        jsonc = { "fixjson" },
+        json = { "jq" },
+        jsonc = { "jq" },
         lua = { "stylua" },
         rust = { "rustfmt" },
         elixir = { lsp_format = "prefer" },
         odin = { "odinfmt" },
         elm = { "elm_format" },
         php = { "pretty-php" },
+        bash = { "shfmt" },
+        sh = { "shfmt" },
 
         -- "_" run formatters on filetypes that don't have other formatters configured.
         ["_"] = { "trim_whitespace" },

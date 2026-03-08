@@ -45,6 +45,11 @@ return {
         "gomodifytags",
         "golangci-lint",
         "delve",
+        "shellcheck",
+        "shfmt",
+        "pretty-php",
+        "phpactor",
+        "ols"
       },
     })
   end,
