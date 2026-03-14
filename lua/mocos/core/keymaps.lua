@@ -31,7 +31,7 @@ map('n', 'N', 'Nzzzv')
 map('x', '<leader>p', [["_dP]])
 map({ 'n', 'v' }, '<leader>dd', [["_d]])
 
--- Yanking will be saved to system clipboard
+-- yank to system clipboard
 map({ 'n', 'v' }, '<leader>y', [["+y]])
 map('n', '<leader>Y', [["+Y]])
 
